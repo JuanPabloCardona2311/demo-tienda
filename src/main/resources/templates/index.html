@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+<h2>Inicio</h2>
+
+<p>Bienvenido, <strong><span sec:authentication="name"></span></strong></p>
+<p>Tu(s) rol(es): <span sec:authentication="principal.authorities"></span></p>
+
+<nav>
+    <ul>
+        <li><a th:href="@{/h2-console}">H2 Console</a></li>
+        <!-- Enlaza a tus controladores cuando existan -->
+        <li><a th:href="@{/productos}">Gestión de productos</a></li>
+        <li><a th:href="@{/usuarios}">Gestión de usuarios (ADMIN)</a></li>
+    </ul>
+</nav>
+
+<form th:action="@{/logout}" method="post">
+    <!-- CSRF token para Spring Security -->
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <button type="submit">Cerrar sesión</button>
+</form>
+
+</body>
+</html>

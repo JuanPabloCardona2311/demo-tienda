@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Compra Exitosa</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+
+    <h2>¡Compra Registrada con Éxito!</h2>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Resumen de la compra</h5>
+            <p><strong>ID Compra:</strong> <span th:text="${compra.id}"></span></p>
+            <p><strong>Cliente:</strong> <span th:text="${compra.cliente.nombre}"></span></p>
+            <p><strong>Total sin descuento:</strong> <span th:text="${compra.totalSinDescuento}"></span></p>
+            <p><strong>Descuento total:</strong> <span th:text="${compra.descuentoTotal}"></span></p>
+            <p><strong>Total con descuento:</strong> <span th:text="${compra.totalConDescuento}"></span></p>
+        </div>
+    </div>
+
+    <a href="/compras/nueva" class="btn btn-success mt-3">Registrar otra compra</a>
+    <a href="/" class="btn btn-secondary mt-3">Volver al inicio</a>
+
+</body>
+</html>
